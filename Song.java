@@ -3,8 +3,11 @@ public class Song {
 
 	private String title;
 	
-	public Song (String title) {
+	public Song (String title, String artist, int year, String genre) {
 		this.title = title;
+		this.artist = artist;
+		this.year = year;
+		this.genre = genre;
 	}
 	
 	public void playSong() {
