@@ -13,7 +13,7 @@ public class Playlist {
     /**
      * Creates a new Playlist
      */
-    public LinkedChain<Song> Playlist(String name) {
+    public Playlist(String name) {
         this.name = name;
         songCount = 0;
         songs = new LinkedChain<Song>();
@@ -33,7 +33,7 @@ public class Playlist {
         Song[] result = new Song[songCount];
         
         for (int i = 0; i < songCount; i++) {
-            result[i] = songs.getEntry(i+1);
+            result[i] = songs.get(i);
         }
         
         return result;
@@ -71,7 +71,7 @@ public class Playlist {
      */
     public boolean containsSong(Song song) {
         for (int i = 0; i < songCount; i++) {
-            if ((songs.getEntry(i+1)).equals(song)) {
+            if ((songs.get(i)).equals(song)) {
                 return true;
             }
         }
