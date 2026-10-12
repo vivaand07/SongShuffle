@@ -1,3 +1,5 @@
+package musicApp
+
 import java.util.Scanner;
  
 /**
