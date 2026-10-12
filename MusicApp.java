@@ -28,7 +28,7 @@ public class MusicApp
     private Scanner input;
     private Playlist playlist;
     private LinkedChain<QueueEntry> queue;
-    private MusicAnalyzer analyzer;
+ 
  
     /**
      * Creates a MusicApp with an empty playlist and an empty queue O(1)
@@ -42,7 +42,7 @@ public class MusicApp
         this.input = input;
         playlist = new Playlist(playlistName);
         queue = new LinkedChain<QueueEntry>();
-        analyzer = new MusicAnalyzer(playlist);
+    
     }
  
  
@@ -100,7 +100,7 @@ public class MusicApp
             }
             else if (choice == 8)
             {
-                wrapped();
+    //            wrapped();
             }
             else
             {
@@ -312,32 +312,7 @@ public class MusicApp
     }
  
  
-    /**
-     * Prints the song count, favorite artist, and favorite song from the
-     * MusicAnalyzer, or "No songs to analyze." if the playlist is empty.
-     */
-    public void wrapped()
-    {
-        if (analyzer.getSongCount() == 0)
-        {
-            System.out.println("No songs to analyze.");
-            return;
-        }
-        System.out.println("===== Your Wrapped =====");
-        System.out.println("Songs in playlist: " + analyzer.getSongCount());
-        System.out.println("Favorite artist: " + analyzer.getFavoriteArtist());
-        System.out.println(
-            "Favorite song: " + describe(analyzer.getFavoriteSong()));
-    }
- 
-    // ----------------------------------------------------------
-    // Private helpers
-    // ----------------------------------------------------------
- 
- 
-    /**
-     * Prints the main menu.
-     */
+  
     private void printMenu()
     {
         System.out.println();
@@ -348,7 +323,7 @@ public class MusicApp
         System.out.println("5. Add song to queue");
         System.out.println("6. Skip");
         System.out.println("7. View queue");
-        System.out.println("8. View Wrapped");
+        System.out.println("8. View Wrapped (UNDER CONSTRUCTION DO NOT CLICK)");
         System.out.println("9. Quit");
     }
  
