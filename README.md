@@ -1,6 +1,6 @@
 # SongShuffle
 
-REFLECTION:
+## REFLECTION:
 
 All the method signatures stayed the same from the specification for the Playlist and Song classes.
 
@@ -11,7 +11,7 @@ We are yet to tackle randomly traversing to a specific song and actually weaving
 
 Currently, our MVP features, bad-input cases, and tests all work well.
 
-NEXT STEPS:
+### NEXT STEPS:
 
 The MVP is pretty much done.
 
