@@ -23,7 +23,7 @@ public class MusicAppTest
     /**
      * Sets up the song input and Song object used by the tests. 
      */
-    public static void setUp()
+    public static void setUpBeforeClass()
     {
         espressoInput = "Espresso\nSabrina Carpenter\n2024\n1\n4\n";
         lightsInput = "Blinding Lights\nThe Weeknd\n2020\n1\n4\n";
