@@ -26,15 +26,16 @@ Will will write the MusicAnalyzer class.
 Vivaan will work on the temporary queue class
 
 
-Section              Who Did It?        How?
-Song class           Catherine        Wrote entire class
-SongTest             Catherine        Wrote entire class
-Playlist class       Vivaan           Wrote entire class
-Playlist test class  Vivaan           Wrote entire class
-QueueEntry class     Angelo           Wrote entire class
-QueueEntry Test      Angelo           Wrote entire class
-LinkedChain class    Angelo           Wrote Entire Class
-LinkedChain test     Angelo           Wrote entire class
-MusicApp class       Will.            Wrote entire class
-MusicApp test        Will.            Wrote entire class
+| Section | Who Did It? | How? |
+| -------- | ----------- | ---------- |
+| Song class    |       Catherine    |    Wrote entire class|
+| SongTest      |       Catherine    |    Wrote entire class|
+| Playlist class|       Vivaan       |    Wrote entire class|
+| Playlist test class | Vivaan       |    Wrote entire class|
+| QueueEntry class |    Angelo        |   Wrote entire class|
+| QueueEntry Test |     Angelo        |   Wrote entire class|
+| LinkedChain class |   Angelo        |   Wrote Entire Class|
+| LinkedChain test  |   Angelo      |     Wrote entire class|
+| MusicApp class |      Will.       |     Wrote entire class|
+|MusicApp test   |     Will.       |     Wrote entire class|
 
