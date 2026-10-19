@@ -39,3 +39,6 @@ Vivaan will work on the temporary queue class
 | MusicApp class |      Will.       |     Wrote entire class|
 |MusicApp test   |     Will.       |     Wrote entire class|
 
+### GenAI NOTE:
+
+GenAI was used for testing MusicApp. It generated code and taught me concepts for testing user inputs.
