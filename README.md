@@ -17,6 +17,21 @@ Pressing 3 allows you to view the playlist. It presents all the songs currently 
 Playing a song from the playlist:
 Pressing 4 allows you to play a song from the playlist. Presents the songs in the same way as viewing the playlist, allowing you to enter the number matching the song to play it.
 
+Adding songs to queue:
+Pressing 5 allows you to add a song to the queue. It first shows you all the songs in the playlist numbered, and prompts you to choose the number corresponding to the song you want to add to the queue.
+
+Skipping songs in the queue:
+Pressing 6 allows you to skip a song in the queue. Upon selection, the first song added to the queue begins playing and is removed from the queue.
+
+Viewing the queue:
+Pressing 7 allows you to view the songs in the queue. Upon selection, it presents all the current songs, numbered.
+
+Wrapped:
+UNDER CONSTRUCTION
+
+Quit:
+Pressing 9 allows you to quit, ending the program.
+
 
 | Section | Who Did It? | How? |
 | -------- | ----------- | ---------- |
