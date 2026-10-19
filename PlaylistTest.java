@@ -1,4 +1,4 @@
-package songshuffle;
+import student.TestCase;
 
 public class PlaylistTest extends TestCase {
     
@@ -24,20 +24,23 @@ public class PlaylistTest extends TestCase {
     }
     
     // Tests getSongs()
+    // addSong uses LinkedChain.add, which puts new songs at the front,
+    // so the newest song comes back first
     public void testGetSongs() {
         playlist.addSong("DUCKWORTH.", "Kendrick Lamar", 2017, "Hip-Hop");
         playlist.addSong("Mirror", "Kendrick Lamar", 2022, "Hip-Hop");
         playlist.addSong("Wesley's Theory", "Kendrick Lamar", 2012, "Hip-Hop");
-        
+
         Song[] temp = playlist.getSongs();
-        assertEquals(song1, temp[0]);
+        assertEquals(3, temp.length);
+        assertEquals(song3, temp[0]);
         assertEquals(song2, temp[1]);
-        assertEquals(song3, temp[2]);
+        assertEquals(song1, temp[2]);
     }
     
     // Tests getName()
     public void testGetName() {
-        assertEquals("Playlist1", playlist.getName());
+        assertEquals("Playlist 1", playlist.getName());
         
         Playlist emptyPlaylist = new Playlist("");
         assertEquals("", emptyPlaylist.getName());
@@ -59,17 +62,17 @@ public class PlaylistTest extends TestCase {
         playlist.addSong("Wesley's Theory", "Kendrick Lamar", 
             2012, "Hip-Hop");
         assertEquals(1, playlist.getSongCount());
-        assertEquals(playlist.containsSong(song3));
-        
-        playlist.add(song1);
+        assertTrue(playlist.containsSong(song3));
+
+        playlist.addSong("DUCKWORTH.", "Kendrick Lamar", 2017, "Hip-Hop");
         assertEquals(2, playlist.getSongCount());
-        assertEquals(playlist.containsSong(song1));
+        assertTrue(playlist.containsSong(song1));
     }
     
     // Tests removeSong()
     public void testRemoveSong() {
-        playlist.addSong(song1);
-        playlist.addSong(song2);
+        playlist.addSong("DUCKWORTH.", "Kendrick Lamar", 2017, "Hip-Hop");
+        playlist.addSong("Mirror", "Kendrick Lamar", 2022, "Hip-Hop");
         assertEquals(2, playlist.getSongCount());
         
         assertTrue(playlist.removeSong(song2));
@@ -83,7 +86,7 @@ public class PlaylistTest extends TestCase {
     // Tests containsSong()
     public void testContainsSong() {
         assertFalse(playlist.containsSong(song1));
-        playlist.add(song1);
+        playlist.addSong("DUCKWORTH.", "Kendrick Lamar", 2017, "Hip-Hop");
         assertTrue(playlist.containsSong(song1));
     }
 }

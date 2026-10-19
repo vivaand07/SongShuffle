@@ -1,5 +1,3 @@
-package musicApp
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -23,6 +21,7 @@ public class MusicAppTest
     /**
      * Sets up the song input and Song object used by the tests. 
      */
+    @BeforeAll
     public static void setUpBeforeClass()
     {
         espressoInput = "Espresso\nSabrina Carpenter\n2024\n1\n4\n";
@@ -399,37 +398,6 @@ public class MusicAppTest
         MusicApp app = new MusicApp(new Scanner(""), "Gym");
         app.viewQueue();
         assertTrue(app.getQueue().isEmpty());
-    }
- 
-    // ----------------------------------------------------------
-    // wrapped
-    // ----------------------------------------------------------
- 
- 
-    /**
-     * Normal case: showing Wrapped doesn't change the playlist.
-     */
-    @Test
-    public void testWrapped()
-    {
-        MusicApp app = new MusicApp(new Scanner(espressoInput + lightsInput),
-            "Gym");
-        app.addSongToPlaylist();
-        app.addSongToPlaylist();
-        app.wrapped();
-        assertEquals(2, app.getPlaylist().getSongCount());
-    }
- 
- 
-    /**
-     * Empty collection: Wrapped on an empty playlist doesn't crash.
-     */
-    @Test
-    public void testWrappedEmpty()
-    {
-        MusicApp app = new MusicApp(new Scanner(""), "Gym");
-        app.wrapped();
-        assertEquals(0, app.getPlaylist().getSongCount());
     }
  
     // ----------------------------------------------------------

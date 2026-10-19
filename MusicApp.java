@@ -1,5 +1,3 @@
-package musicApp
-
 import java.util.Scanner;
  
 /**
@@ -44,7 +42,29 @@ public class MusicApp
         this.input = input;
         playlist = new Playlist(playlistName);
         queue = new LinkedChain<QueueEntry>();
-    
+
+    }
+
+
+    /**
+     * Gives back the playlist so tests can check it. O(1).
+     *
+     * @return the playlist
+     */
+    public Playlist getPlaylist()
+    {
+        return playlist;
+    }
+
+
+    /**
+     * Gives back the queue so tests can check it. O(1).
+     *
+     * @return the queue
+     */
+    public LinkedChain<QueueEntry> getQueue()
+    {
+        return queue;
     }
  
  
