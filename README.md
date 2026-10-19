@@ -1,29 +1,21 @@
 # SongShuffle
 
-## REFLECTION:
+## How to Compile and Run the Programs/Tests:
 
-All the method signatures stayed the same from the specification for the Playlist and Song classes.
+1. Start the program by running MusicApp.java. This will present you with the option to create a playlist by giving it a title.
+2. From here, 9 options will be presented (labelled 1-9). These allow you to add/remove/play songs from and view the playlist, add/skip songs to and view the queue, view the wrapped, and quit.
 
-The LinkedChain was kept as it is.
+Adding songs to the playlist:
+Pressing 1 allows you to add a song to the playlist. The program will first prompt you to enter the name of the song, followed by the artist, followed by the year the song was released, and finally the genre of the song. Adding songs to the playlist is needed to add songs to the queue. The menu will confirm the details of the song (allowing you to edit the song title, artist, and/or year) and gives you the option to confirm adding it to the playlist.
 
-We partially attacked the problem with multiple songs in the Playlist (equals(Object other) method and notifying the user if the song already exists in a playlist). However, we still have time to consider complications between our current methods and the presence of duplicate songs. 
-We are yet to tackle randomly traversing to a specific song and actually weaving in audio to play.
+Removing songs from the playlist:
+Pressing 2 allows you to remove songs from the playlist. When entered, each song in the playlist will be presented along with a number corresponding to each song. Entering the matching number will remove it from the playlist.
 
-Currently, our MVP features, bad-input cases, and tests all work well.
+Viewing the playlist:
+Pressing 3 allows you to view the playlist. It presents all the songs currently in the playlist, numbered.
 
-### NEXT STEPS:
-
-The MVP is pretty much done.
-
-We want to 100% implement a MusicAnalyzer class that displays listening statistics (top artist, top/bottom genre, top/bottom music decade, favorite song) so that the code has more substance.
-We are also trying to figure out if there is a way for us to somehow actually play the music. This falls in our unknowns category, but we all think it’d be a worthwhile stretch goal.
-We also are still trying to figure out how to implement a function that can access a random Song object and play it to imitate actual music shuffling.
-
-None - the new tests for MusicAnalyzer were already specified in the spec because we were certain that this was a stretch goal we really wanted to implement.
-
-Catherine will try to research and figure out how to actually be able to play audio files so that the program can actually act like a music app.
-Will will write the MusicAnalyzer class.
-Vivaan will work on the temporary queue class
+Playing a song from the playlist:
+Pressing 4 allows you to play a song from the playlist. Presents the songs in the same way as viewing the playlist, allowing you to enter the number matching the song to play it.
 
 
 | Section | Who Did It? | How? |
