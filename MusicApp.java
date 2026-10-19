@@ -1,12 +1,10 @@
-package musicApp
-
 import java.util.Scanner;
  
 /**
  * The user interface for the program
  *
  * @author Will
- * @version 2026.10.10
+ * @version 2026.10.19
  */
 public class MusicApp
 {
@@ -30,10 +28,13 @@ public class MusicApp
     private Scanner input;
     private Playlist playlist;
     private LinkedChain<QueueEntry> queue;
+    private Playlist listeningHistory;
+    private MusicAnalyzer analyzer;
  
  
     /**
-     * Creates a MusicApp with an empty playlist and an empty queue O(1)
+     * Creates a MusicApp with an empty playlist, queue, and listening
+     * history. O(1).
      */
     public MusicApp(Scanner input, String playlistName)
     {
@@ -44,6 +45,8 @@ public class MusicApp
         this.input = input;
         playlist = new Playlist(playlistName);
         queue = new LinkedChain<QueueEntry>();
+        listeningHistory = new Playlist("Listening history");
+        analyzer = new MusicAnalyzer(listeningHistory);
     
     }
  
@@ -102,7 +105,7 @@ public class MusicApp
             }
             else if (choice == 8)
             {
-    //            wrapped();
+                wrapped();
             }
             else
             {
@@ -236,7 +239,8 @@ public class MusicApp
  
  
     /**
-     * Prints "Now playing: " followed by the song. O(1).
+     * Records one play and prints "Now playing: " followed by the song.
+     * Both playlist playback and queue playback use this method. O(1).
      */
     public void playSong(Song song)
     {
@@ -244,6 +248,8 @@ public class MusicApp
         {
             throw new IllegalArgumentException("Cannot play a null song.");
         }
+        listeningHistory.addSong(song.getTitle(), song.getArtist(),
+            song.getYear(), song.getGenre());
         System.out.println("Now playing: " + describe(song));
     }
  
@@ -293,7 +299,7 @@ public class MusicApp
  
  
     /**
-     * Prints every song in the queue in play order, or "Queue is empty."
+     * Prints every song in the queue in play order
      * O(n).
      */
     public void viewQueue()
@@ -314,7 +320,44 @@ public class MusicApp
     }
  
  
-  
+    /**
+     * Shows Wrapped after at least three plays O(n^2)
+     */
+    public void wrapped()
+    {
+        int songsPlayed = analyzer.getSongCount();
+        if (songsPlayed < 3)
+        {
+            System.out.println("Play more songs");
+            return;
+        }
+
+        System.out.println("You've played " + songsPlayed + " songs");
+        Song[] favorites = analyzer.getFavoriteSongs();
+        if (favorites.length == 1)
+        {
+            System.out.println(favorites[0].getTitle() + " Is your top song");
+        }
+        else
+        {
+            System.out.println("Your top songs are tied:");
+            for (int i = 0; i < favorites.length; i++)
+            {
+                System.out.println("  " + describe(favorites[i]));
+            }
+        }
+
+        if (readYesNo("Do you want more details about your wrapped? "
+            + "(yes/no): "))
+        {
+            System.out.println(
+                "Favorite genre: " + analyzer.getFavoriteGenre());
+            System.out.println(
+                "Favorite artist: " + analyzer.getFavoriteArtist());
+        }
+    }
+
+
     private void printMenu()
     {
         System.out.println();
@@ -325,7 +368,7 @@ public class MusicApp
         System.out.println("5. Add song to queue");
         System.out.println("6. Skip");
         System.out.println("7. View queue");
-        System.out.println("8. View Wrapped (UNDER CONSTRUCTION DO NOT CLICK)");
+        System.out.println("8. View Wrapped");
         System.out.println("9. Quit");
     }
  
@@ -438,22 +481,23 @@ public class MusicApp
  
  
     /**
-     * Fck this method
+     * Helper method
      */
     private boolean readYesNo(String prompt)
     {
         String answer = readLine(prompt).toLowerCase();
-        while (!answer.equals("y") && !answer.equals("n"))
+        while (!answer.equals("y") && !answer.equals("yes")
+            && !answer.equals("n") && !answer.equals("no"))
         {
-            System.out.println("Please enter y or n.");
+            System.out.println("Please enter yes or no (y/n).");
             answer = readLine(prompt).toLowerCase();
         }
-        return answer.equals("y");
+        return answer.equals("y") || answer.equals("yes");
     }
  
  
     /**
-     * Prints a prompt and reads one line, trimming extra spaces
+     * Helper method
      */
     private String readLine(String prompt)
     {
