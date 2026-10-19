@@ -1,5 +1,61 @@
-package musicApp
+/**
+ * Analyzes the songs in a Playlist.
+ *
+ * @author Will
+ * @version 2026.10.19
+ */
+public class MusicAnalyzer
+{
+    private Playlist playlist;
 
+
+    /**
+     * Creates an analyzer for the given playlist. O(1).
+     *
+     * @param playlist the playlist to analyze
+     * @throws IllegalArgumentException if playlist is null
+     */
+    public MusicAnalyzer(Playlist playlist)
+    {
+        if (playlist == null)
+        {
+            throw new IllegalArgumentException("Playlist cannot be null.");
+        }
+        this.playlist = playlist;
+    }
+
+
+    /**
+     * Returns the number of entries, including repeated songs. O(1).
+     *
+     * @return the number of songs in the supplied playlist
+     */
+    public int getSongCount()
+    {
+        return playlist.getSongCount();
+    }
+
+
+    /**
+     * Returns the most frequent song, or null for an empty playlist.
+     * For a tie, returns the first song in playlist order. O(n^2).
+     *
+     * @return the favorite song, or null if there are no songs
+     */
+    public Song getFavoriteSong()
+    {
+        Song[] favorites = getFavoriteSongs();
+        if (favorites.length == 0)
+        {
+            return null;
+        }
+        return favorites[0];
+    }
+
+
+    /**
+     * Returns all songs tied for the greatest number of appearances.
+     * Each distinct song appears once, in playlist order. O(n^2)
      *
      * @return the favorite songs, or an empty array if there are no songs
      */
@@ -107,3 +163,4 @@ package musicApp
         return favorite;
     }
 }
+
