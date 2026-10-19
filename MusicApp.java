@@ -325,7 +325,7 @@ public class MusicApp
      */
     public void wrapped()
     {
-        int songsPlayed = analyzer.getSongCount();
+        int songsPlayed = playlist.getSongCount();
         if (songsPlayed < 3)
         {
             System.out.println("Play more songs");
@@ -347,15 +347,8 @@ public class MusicApp
             }
         }
 
-        if (readYesNo("Do you want more details about your wrapped? "
-            + "(yes/no): "))
-        {
-            System.out.println(
-                "Favorite genre: " + analyzer.getFavoriteGenre());
-            System.out.println(
-                "Favorite artist: " + analyzer.getFavoriteArtist());
-        }
     }
+        
 
 
     private void printMenu()
